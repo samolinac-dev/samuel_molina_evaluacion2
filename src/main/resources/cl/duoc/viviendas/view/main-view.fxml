@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cl.duoc.viviendas.controller.MainController"
+      spacing="12" prefWidth="800" prefHeight="630">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <children>
+        <Label text="Registro de viviendas" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+        <GridPane hgap="10" vgap="10">
+            <children>
+                <Label text="Tipo" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="tipo" prefWidth="205" promptText="Selecciona un tipo" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Código" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="codigo" promptText="Ej.: PROP-D01" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Superficie (m²)" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="superficie" promptText="Ej.: 65,5" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Habitaciones" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="habitaciones" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Piso (departamento)" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="piso" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Gasto común al día" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="gastoComun" prefWidth="205" promptText="Selecciona" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Label text="Estacionamiento" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="estacionamiento" prefWidth="205" promptText="Selecciona" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Patio (casa)" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="patio" prefWidth="205" promptText="Selecciona" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+            </children>
+        </GridPane>
+        <Button text="Registrar" onAction="#registrar"/>
+        <Label text="Viviendas registradas" style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+        <TextField fx:id="buscar" promptText="Buscar por código o tipo"/>
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="140"/>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="150"/>
+                <TableColumn fx:id="colSuperficie" text="Superficie (m²)" prefWidth="140"/>
+                <TableColumn fx:id="colHabitaciones" text="Habitaciones" prefWidth="130"/>
+                <TableColumn fx:id="colCosto" text="Costo arriendo" prefWidth="160"/>
+            </columns>
+        </TableView>
+        <Button text="Eliminar seleccionada" onAction="#eliminar"/>
+        <Label fx:id="mensaje" text="" wrapText="true" style="-fx-text-fill: #244b69; -fx-font-size: 13px;"/>
+    </children>
+</VBox>
